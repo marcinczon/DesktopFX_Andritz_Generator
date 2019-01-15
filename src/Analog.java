@@ -6,6 +6,12 @@ import java.util.ArrayList;
 
 public class Analog
 {
+	
+	//*******************
+	//
+	// Nie dodaje parametru <No screan> (Standard)
+	//
+	//*******************
 	static int IdComplex = 90000;
 	
 	ArrayList<String> bufferArrayList = new ArrayList<>();
@@ -148,7 +154,7 @@ public class Analog
 			stringBuilderFunctions.append(praseStringSHOW_PUP_A999MW1(sourceFunctionPart2_A999MW1, strings));
 		}
 
-		ReadWrite.createFileAndFill(Paths.outputPathAnalog, "ImportAnalogVariables.XML", stringBuilderVariables.toString(), 1);
+		//ReadWrite.createFileAndFill(Paths.outputPathAnalog, "ImportAnalogVariables.XML", stringBuilderVariables.toString(), 1);
 
 		// *********************************************
 		//
