@@ -2,25 +2,12 @@
 public class Analog
 {
 	static int IdComplex = 90000;
-	
-	String pathVariableCMD_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\Variable_CMD_A999MW1.XML";
-	String pathVariableCONFIG_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\Variable_CONFIG_A999MW1.XML";
-	String pathVariableSTAT_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\Variable_STAT_A999MW1.XML";
 
-	String pathFunctionPart1_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\ImportFunctionPart1.XML";
-	String pathFunctionPart2_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\ImportFunctionPart2.XML";
-	String pathFunctionPart3_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\ImportFunctionPart3.XML";
-
-	String pathScreenPart1_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\ImportScreenPart1.XML";
-	String pathScreenPart2_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\ImportScreenPart2.XML";
-	String pathScreenPart3_A999MW1 = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Binary\\ImportScreenPart3.XML";
-	
-	
 	static StringBuilder stringBulder = new StringBuilder();
 	static StringBuilder stringBuilderVariables = new StringBuilder();
 	static StringBuilder stringBuilderFunctions = new StringBuilder();
 	static StringBuilder stringBuilderScreen = new StringBuilder();
-	
+
 	public Analog()
 	{
 		// *********************************************+
@@ -30,29 +17,29 @@ public class Analog
 		// *********************************************+
 
 		// Zrodla z calego pliku oryginalnego
-		String sourceCMD_B999GS1 = readFile(pathCMD_B999GS1);
-		String sourceCONFIG_B999GS1 = readFile(pathCONFIG_B999GS1);
-		String sourceSTAT_B999GS1 = readFile(pathSTAT_B999GS1);
-		String sourcePUP_B999GS1_BIN = readFile(pathPUP_B999GS1_BIN);
-		String sourceSHOW_PUP_B999GS1_BIN = readFile(pathSHOW_PUP_B999GS1_BIN);
+		String sourceCMD_A999MW1 = ReadWrite.readFile(Paths.pathCMD_A999MW1);
+		String sourceCONFIG_A999MW1 = ReadWrite.readFile(Paths.pathCONFIG_A999MW1);
+		String sourceSTAT_A999MW1 = ReadWrite.readFile(Paths.pathSTAT_A999MW1);
+		String sourcePUP_A999MW1_BIN = ReadWrite.readFile(Paths.pathPUP_A999MW1_ANALOG);
+		String sourceSHOW_PUP_A999MW1_BIN = ReadWrite.readFile(Paths.pathSHOW_PUP_A999MW1_ANALOG);
 
 		// Zrodla tylko dla zmiennych
-		String sourceVariableCMD_B999GS1 = readFile(pathVariableCMD_B999GS1);
-		String sourceVariableCONFIG_B999GS1 = readFile(pathVariableCONFIG_B999GS1);
-		String sourceVariableSTAT_B999GS1 = readFile(pathVariableSTAT_B999GS1);
+		String sourceVariableCMD_A999MW1 = ReadWrite.readFile(Paths.pathVariableCMD_A999MW1);
+		String sourceVariableCONFIG_A999MW1 = ReadWrite.readFile(Paths.pathVariableCONFIG_A999MW1);
+		String sourceVariableSTAT_A999MW1 = ReadWrite.readFile(Paths.pathVariableSTAT_A999MW1);
 
 		// Zrodlo tylko dla funkcji
-		String sourceFunctionPart1_B999GS1 = readFile(pathFunctionPart1_B999GS1);
-		String sourceFunctionPart2_B999GS1 = readFile(pathFunctionPart2_B999GS1);
-		String sourceFunctionPart3_B999GS1 = readFile(pathFunctionPart3_B999GS1);
+		String sourceFunctionPart1_A999MW1 = ReadWrite.readFile(Paths.pathFunctionPart1_A999MW1);
+		String sourceFunctionPart2_A999MW1 = ReadWrite.readFile(Paths.pathFunctionPart2_A999MW1);
+		String sourceFunctionPart3_A999MW1 = ReadWrite.readFile(Paths.pathFunctionPart3_A999MW1);
 
 		// Zrodlo tylko dla Ekranu
-		String sourceScreenPart1_B999GS1 = readFile(pathScreenPart1_B999GS1);
-		String sourceScreenPart2_B999GS1 = readFile(pathScreenPart2_B999GS1);
-		String sourceScreenPart3_B999GS1 = readFile(pathScreenPart3_B999GS1);
-		
+		String sourceScreenPart1_A999MW1 = ReadWrite.readFile(Paths.pathScreenPart1_A999MW1);
+		String sourceScreenPart2_A999MW1 = ReadWrite.readFile(Paths.pathScreenPart2_A999MW1);
+		String sourceScreenPart3_A999MW1 = ReadWrite.readFile(Paths.pathScreenPart3_A999MW1);
+
 	}
-	
+
 	private static String praseString_A999MW1(String source, String[] parameters, int offsetParameter)
 	{
 		String newSource_A999MW1 = new String(source);
@@ -90,11 +77,12 @@ public class Analog
 		String newSource_A999MW1 = new String(source);
 		String name = parameters[0];
 
+		
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("A999MW1", name);
-		newSource_A999MW1 = newSource_A999MW1.replaceAll("@TEMPOERARY OVERVIEW", "@PUP_" + name + "_BIN");
+		//@PUP_A999MW1_ANALOG
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("@TEMPOERARY OVERVIEW", "@PUP_" + name + "_ANALOG");
 
 		return newSource_A999MW1;
 	}
-
 
 }

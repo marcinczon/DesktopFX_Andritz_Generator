@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 public class ReadWrite
 {
-	private static String readFile(String filePath)
+	static String readFile(String filePath)
 	{
 		String content = null;
 		try
