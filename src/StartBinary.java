@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 //
 //
 // *********************************************
-public class Start extends Application
+public class StartBinary extends Application
 {
 
 	static gui gui;

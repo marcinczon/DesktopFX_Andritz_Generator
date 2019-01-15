@@ -8,7 +8,11 @@ public final class Paths
 	// Analog Paths
 	//
 	//***************
-	static String mainPathAnalog = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Analog\\";
+
+	static String mainPathAnalog = 						"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Analog\\";
+	static String outputPathAnalog = 					"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\A999MW1 - Analog\\Generator\\";
+	
+	static String sourcePathAnalog = 					mainPathAnalog + "\\Source - Analog.txt";
 
 	static String pathCMD_A999MW1 = 					mainPathAnalog + "Oryginal\\CMD_A999MW1.XML";
 	static String pathCONFIG_A999MW1 = 					mainPathAnalog + "Oryginal\\CONFIG_A999MW1.XML";
@@ -26,6 +30,10 @@ public final class Paths
 	static String pathVariableCMD_A999MW1 = 			mainPathAnalog + "Import\\Variable_CMD_A999MW1.XML";
 	static String pathVariableCONFIG_A999MW1 = 			mainPathAnalog + "Import\\Variable_CONFIG_A999MW1.XML";
 	static String pathVariableSTAT_A999MW1 = 			mainPathAnalog + "Import\\Variable_STAT_A999MW1.XML";
+	
+	static String pathVariablePart1_A999MW1 = 			mainPathAnalog + "Import\\ImportVariablePart1.XML";
+	static String pathVariablePart2_A999MW1 = 			mainPathAnalog + "Import\\ImportVariablePart2.XML";
+	static String pathVariablePart3_A999MW1 = 			mainPathAnalog + "Import\\ImportVariablePart3.XML";
 
 	static String pathFunctionPart1_A999MW1 = 			mainPathAnalog + "Import\\ImportFunctionPart1.XML";
 	static String pathFunctionPart2_A999MW1 = 			mainPathAnalog + "Import\\ImportFunctionPart2.XML";
@@ -39,9 +47,12 @@ public final class Paths
 	//
 	// Binary Paths
 	//
-	//***************
+	//***************	
+
+	static String mainPathBinary = 						"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\B999GS1 - Binary\\";
+	static String outputPathBinary = 					"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\B999GS1 - Binary\\Generator\\";
 	
-	static String mainPathBinary = "C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\B999GS1 - Binary\\";
+	static String sourcePathBinary = 					mainPathBinary + "Source - Binary.txt";
 
 	static String pathCMD_B999GS1 = 					mainPathBinary + "Oryginal\\CMD_B999GS1.XML";
 	static String pathCONFIG_B999GS1 = 					mainPathBinary + "Oryginal\\CONFIG_B999GS1.XML";
