@@ -5,7 +5,7 @@ public class StartAnalog
 
 	public static void main(String[] args)
 	{
-		Analog analog = new Analog();
+		GeneratorAnalog analog = new GeneratorAnalog();
 		
 		try
 		{

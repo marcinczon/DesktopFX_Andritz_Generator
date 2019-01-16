@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Analog
+public class GeneratorAnalog
 {
 	
 	//*******************
@@ -50,7 +50,7 @@ public class Analog
 	
 
 
-	public Analog()
+	public GeneratorAnalog()
 	{
 		// *********************************************+
 		//
