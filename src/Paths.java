@@ -79,41 +79,77 @@ public final class Paths
 	//
 	//***************
 
-	static String mainPathValve = 						"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\V999MV1 - Analog\\";
-	static String outputPathValve = 					"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\V999MV1 - Analog\\Generator\\";
+	static String mainPathValve = 						"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\V999MV1 - Valve\\";
+	static String outputPathValve = 					"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\V999MV1 - Valve\\Generator\\";
 	
-	static String sourcePathValve = 					mainPathAnalog + "\\Source - Analog.txt";
+	static String sourcePathValve = 					mainPathValve + "\\Source - ValveV1.txt";
 
-	static String pathCMD_V999MV1 = 					mainPathAnalog + "Oryginal\\CMD_V999MV1.XML";
-	static String pathSTAT_V999MV1 = 					mainPathAnalog + "Oryginal\\STAT_V999MV1.XML";
+	static String pathCMD_V999MV1 = 					mainPathValve + "Oryginal\\CMD_V999MV1.XML";
+	static String pathSTAT_V999MV1 = 					mainPathValve + "Oryginal\\STAT_V999MV1.XML";
 	
-	static String pathPUP_V999MV1_VAL= 					mainPathAnalog + "Oryginal\\PUP_V999MV1_VAL.XML";
-	static String pathPUP_V999MV1_VAL_DET = 			mainPathAnalog + "Oryginal\\PUP_V999MV1_VAL_DET.XML";
-	static String pathPUP_V999MV1_VAL_LCK =		    	mainPathAnalog + "Oryginal\\PUP_V999MV1_VAL_LCK.XML";
-	static String pathPUP_V999MV1_VAL_2_LCK =		    mainPathAnalog + "Oryginal\\PUP_V999MV1_VAL_2_LCK.XML";
-	static String pathPUP_V999MV1_VAL_PARAM= 			mainPathAnalog + "Oryginal\\PUP_V999MV1_VAL_PARAM.XML";
+	static String pathPUP_V999MV1_VAL= 					mainPathValve + "Oryginal\\PUP_V999MV1_VAL.XML";
+	static String pathPUP_V999MV1_VAL_DET = 			mainPathValve + "Oryginal\\PUP_V999MV1_VAL_DET.XML";
+	static String pathPUP_V999MV1_VAL_LCK =		    	mainPathValve + "Oryginal\\PUP_V999MV1_VAL_LCK.XML";
+	static String pathPUP_V999MV1_VAL_2_LCK =		    mainPathValve + "Oryginal\\PUP_V999MV1_VAL_2_LCK.XML";
+	static String pathPUP_V999MV1_VAL_PARAM= 			mainPathValve + "Oryginal\\PUP_V999MV1_VAL_PARAM.XML";
 	
-	static String pathSHOW_PUP_V999MV1_VAL = 			mainPathAnalog + "Oryginal\\SHOW_PUP_V999MV1_VAL.XML";
-	static String pathSHOW_PUP_V999MV1_VAL_DET = 		mainPathAnalog + "Oryginal\\SHOW_PUP_V999MV1_VAL_DET.XML";
-	static String pathSHOW_PUP_V999MV1_VAL_LCK = 		mainPathAnalog + "Oryginal\\SHOW_PUP_V999MV1_VAL_LCK.XML";
-	static String pathSHOW_PUP_V999MV1_VAL_2_LCK = 		mainPathAnalog + "Oryginal\\SHOW_PUP_V999MV1_VAL_2_LCK.XML";
-	static String pathSHOW_PUP_V999MV1_VAL_PARAM = 		mainPathAnalog + "Oryginal\\SHOW_PUP_V999MV1_VAL_PARAM.XML";
+	static String pathSHOW_PUP_V999MV1_VAL = 			mainPathValve + "Oryginal\\SHOW_PUP_V999MV1_VAL.XML";
+	static String pathSHOW_PUP_V999MV1_VAL_DET = 		mainPathValve + "Oryginal\\SHOW_PUP_V999MV1_VAL_DET.XML";
+	static String pathSHOW_PUP_V999MV1_VAL_LCK = 		mainPathValve + "Oryginal\\SHOW_PUP_V999MV1_VAL_LCK.XML";
+	static String pathSHOW_PUP_V999MV1_VAL_2_LCK = 		mainPathValve + "Oryginal\\SHOW_PUP_V999MV1_VAL_2_LCK.XML";
+	static String pathSHOW_PUP_V999MV1_VAL_PARAM = 		mainPathValve + "Oryginal\\SHOW_PUP_V999MV1_VAL_PARAM.XML";
 
 	
-	static String pathVariableCMD_V999MV1 = 			mainPathAnalog + "Import\\Variable_CMD_V999MV1.XML";
-	static String pathVariableSTAT_V999MV1 = 			mainPathAnalog + "Import\\Variable_STAT_V999MV1.XML";
+	static String pathVariableCMD_V999MV1 = 			mainPathValve + "Import\\Variable_CMD_V999MV1.XML";
+	static String pathVariableSTAT_V999MV1 = 			mainPathValve + "Import\\Variable_STAT_V999MV1.XML";
 	
-	static String pathVariablePart1_V999MV1 = 			mainPathAnalog + "Import\\ImportVariablePart1.XML";
-	static String pathVariablePart2_V999MV1 = 			mainPathAnalog + "Import\\ImportVariablePart2.XML";
-	static String pathVariablePart3_V999MV1 = 			mainPathAnalog + "Import\\ImportVariablePart3.XML";
+	static String pathVariablePart1_V999MV1 = 			mainPathValve + "Import\\ImportVariablePart1.XML";
+	static String pathVariablePart2_V999MV1 = 			mainPathValve + "Import\\ImportVariablePart2.XML";
+	static String pathVariablePart3_V999MV1 = 			mainPathValve + "Import\\ImportVariablePart3.XML";
 
-	static String pathFunctionPart1_V999MV1 = 			mainPathAnalog + "Import\\ImportFunctionPart1.XML";
-	static String pathFunctionPart2_V999MV1 = 			mainPathAnalog + "Import\\ImportFunctionPart2.XML";
-	static String pathFunctionPart3_V999MV1 = 			mainPathAnalog + "Import\\ImportFunctionPart3.XML";
+	static String pathFunctionPart1_V999MV1 = 			mainPathValve + "Import\\ImportFunctionPart1.XML";
+	static String pathFunctionPart2_V999MV1 = 			mainPathValve + "Import\\ImportFunctionPart2.XML";
+	static String pathFunctionPart3_V999MV1 = 			mainPathValve + "Import\\ImportFunctionPart3.XML";
 
-	static String pathScreenPart1_V999MV1 = 			mainPathAnalog + "Import\\ImportScreenPart1.XML";
-	static String pathScreenPart2_V999MV1 = 			mainPathAnalog + "Import\\ImportScreenPart2.XML";
-	static String pathScreenPart3_V999MV1 = 			mainPathAnalog + "Import\\ImportScreenPart3.XML";
+	static String pathScreenPart1_V999MV1 = 			mainPathValve + "Import\\ImportScreenPart1.XML";
+	static String pathScreenPart2_V999MV1 = 			mainPathValve + "Import\\ImportScreenPart2.XML";
+	static String pathScreenPart3_V999MV1 = 			mainPathValve + "Import\\ImportScreenPart3.XML";
+	
+
+	//***************
+	//
+	// Motor Paths
+	//
+	//***************
+
+	static String mainPathMotor = 						"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\M999CM1 - Motor\\";
+	static String outputPathMotor = 					"C:\\Users\\mczonstke\\Desktop\\Wizu\\Changed\\Import\\Base\\M999CM1 - Motor\\Generator\\";
+	
+	static String sourcePathMotor = 					mainPathMotor + "\\Source - MotorDOL.txt";
+
+	static String pathCMD_M999CM1 = 					mainPathMotor + "Oryginal\\_CMD_M999CM1.XML";
+	static String pathCONFIG_M999CM1 = 					mainPathMotor + "Oryginal\\_CONFIG_M999CM1.XML";
+	static String pathSTAT_M999CM1 = 					mainPathMotor + "Oryginal\\_STAT_M999CM1.XML";
+	static String pathOP_HOURS_M999CM1 = 				mainPathMotor + "Oryginal\\_OP_HOURS_M999CM1.XML";
+	static String pathPUP_M999CM1_MOT = 				mainPathMotor + "Oryginal\\_PUP_M999CM1_MOT.XML";
+	static String pathSHOW_PUP_M999CM1_MOT = 			mainPathMotor + "Oryginal\\_SHOW_PUP_M999CM1_MOT.XML";
+	
+	static String pathVariableCMD_M999CM1 = 			mainPathMotor + "Oryginal\\Variable_M999CM1_CMD.XML";
+	static String pathVariableSTAT_M999CM1 = 			mainPathMotor + "Oryginal\\Variable_M999CM1_STAT.XML";
+	static String pathVariableCONFIG_M999CM1 = 			mainPathMotor + "Oryginal\\Variable_M999CM1_CONFIG.XML";
+	static String pathVariableOP_HOURS_M999CM1 = 		mainPathMotor + "Oryginal\\Variable_M999CM1_OP_HOURS.XML";
+	
+	static String pathVariablePart1_M999CM1 = 			mainPathMotor + "Import\\ImportVariablePart1.XML";
+	static String pathVariablePart2_M999CM1 = 			mainPathMotor + "Import\\ImportVariablePart2.XML";
+	static String pathVariablePart3_M999CM1 = 			mainPathMotor + "Import\\ImportVariablePart3.XML";
+
+	static String pathFunctionPart1_M999CM1 = 			mainPathMotor + "Import\\ImportFunctionPart1.XML";
+	static String pathFunctionPart2_M999CM1 = 			mainPathMotor + "Import\\ImportFunctionPart2.XML";
+	static String pathFunctionPart3_M999CM1 = 			mainPathMotor + "Import\\ImportFunctionPart3.XML";
+
+	static String pathScreenPart1_M999CM1 = 			mainPathMotor + "Import\\ImportScreenPart1.XML";
+	static String pathScreenPart2_M999CM1 = 			mainPathMotor + "Import\\ImportScreenPart2.XML";
+	static String pathScreenPart3_M999CM1 = 			mainPathMotor + "Import\\ImportScreenPart3.XML";
 	
 
 

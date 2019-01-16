@@ -198,7 +198,8 @@ public class GeneratorValves
 		String newSource_V999MV1 = new String(source);
 		String name = parameters[0];
 
-		newSource_V999MV1 = newSource_V999MV1.replaceAll("V999MV1", name);
+		newSource_V999MV1 = newSource_V999MV1.replaceAll("V999MV1", name);		
+		newSource_V999MV1 = newSource_V999MV1.replaceAll("<SubstituteSource />", "<SubstituteSource>*V999MV1*</SubstituteSource>");
 		newSource_V999MV1 = newSource_V999MV1.replaceAll("\\*" + name + "\\*", "*V999MV1*");
 
 		return newSource_V999MV1;

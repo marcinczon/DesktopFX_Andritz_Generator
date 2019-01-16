@@ -13,7 +13,7 @@ public class GeneratorAnalog
 	//
 	//*******************
 	
-	static int IdComplex = 90000;
+	static int IdComplex = 92000;
 	
 	ArrayList<String> bufferArrayList = new ArrayList<>();
 
@@ -207,7 +207,9 @@ public class GeneratorAnalog
 		String name = parameters[0];
 
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("A999MW1", name);
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("<SubstituteSource />", "<SubstituteSource>*A999MW1*</SubstituteSource>");
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("\\*" + name + "\\*", "*A999MW1*");
+		
 
 		return newSource_A999MW1;
 	}
