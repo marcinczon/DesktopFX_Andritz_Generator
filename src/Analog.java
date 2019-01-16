@@ -12,6 +12,7 @@ public class Analog
 	// Nie dodaje parametru <No screan> (Standard)
 	//
 	//*******************
+	
 	static int IdComplex = 90000;
 	
 	ArrayList<String> bufferArrayList = new ArrayList<>();
