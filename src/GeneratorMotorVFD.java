@@ -51,6 +51,7 @@ public class GeneratorMotorVFD
 	// Zrodlo tylko dla funkcji
 	String sourceFunctionPart1_M999CM1;
 	String sourceFunctionPart2_M999CM1;
+	String sourceFunctionPart2_A999MW1_SIC;
 	String sourceFunctionPart3_M999CM1;
 
 	// Zrodlo tylko dla Ekranu
@@ -102,9 +103,10 @@ public class GeneratorMotorVFD
 		 sourceVariablePart3_M999CM1 = ReadWrite.readFile(Paths.pathVariablePart3_M999CM1);
 		 
 		// Zrodlo tylko dla funkcji
-		 sourceFunctionPart1_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart1_M999CM1);
-		 sourceFunctionPart2_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart2_M999CM1_VFD);
-		 sourceFunctionPart3_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart3_M999CM1);
+		 sourceFunctionPart1_M999CM1 = 		ReadWrite.readFile(Paths.pathFunctionPart1_M999CM1);
+		 sourceFunctionPart2_M999CM1 = 		ReadWrite.readFile(Paths.pathFunctionPart2_M999CM1);
+		 sourceFunctionPart2_A999MW1_SIC = 	ReadWrite.readFile(Paths.pathFunctionPart2_A999MW1_SIC);
+		 sourceFunctionPart3_M999CM1 = 		ReadWrite.readFile(Paths.pathFunctionPart3_M999CM1);
 
 		// Zrodlo tylko dla Ekranu
 		 sourceScreenPart1_M999CM1 = 	 ReadWrite.readFile(Paths.pathScreenPart1_M999CM1);
@@ -196,8 +198,8 @@ public class GeneratorMotorVFD
 			ReadWrite.createFileAndFill(Paths.outputPathMotorVFD + strings[0] + "\\", "SHOW_PUP_" + strings[0] + "_BIN" + ".XML", praseStringSHOW_PUP_M999CM1(sourceSHOW_PUP_M999CM1_MOT, strings), 0);
 			stringBuilderFunctions.append(praseStringSHOW_PUP_M999CM1(sourceFunctionPart2_M999CM1, strings));
 			
-		//	ReadWrite.createFileAndFill(Paths.outputPathMotorVFD + strings[0] + "\\", "SHOW_PUP_" + strings[0] + "_SIC_BIN" + ".XML", praseStringSHOW_PUP_M999CM1(sourceSHOW_PUP_A999MW1_SIC, strings), 0);
-		//	stringBuilderFunctions.append(praseStringSHOW_PUP_M999CM1(sourceFunctionPart2_M999CM1, strings));
+			ReadWrite.createFileAndFill(Paths.outputPathMotorVFD + strings[0] + "\\", "SHOW_PUP_" + strings[0] + "_SIC_BIN" + ".XML", praseStringSHOW_PUP_A999MW1(sourceSHOW_PUP_A999MW1_SIC, strings), 0);
+			stringBuilderFunctions.append(praseStringSHOW_PUP_A999MW1(sourceFunctionPart2_A999MW1_SIC, strings));
 		}
 
 		//ReadWrite.createFileAndFill(Paths.outputPathMOTOR, "ImportMOTORVariables.XML", stringBuilderVariables.toString(), 1);
@@ -312,7 +314,7 @@ public class GeneratorMotorVFD
 
 		
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("A999MW1", name);
-		newSource_A999MW1 = newSource_A999MW1.replaceAll("@TEMPOERARY OVERVIEW", "@PUP_" + name + "_MOTOR");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("@TEMPOERARY OVERVIEW", "@PUP_" + name + "_MLOAD");
 
 		return newSource_A999MW1;
 	}

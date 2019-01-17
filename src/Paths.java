@@ -165,8 +165,8 @@ public final class Paths
 	static String pathVariablePart3_M999CM1 = 			mainPathMotor + "Import\\ImportVariablePart3.XML";
 
 	static String pathFunctionPart1_M999CM1 = 			mainPathMotor + "Import\\ImportFunctionPart1.XML";
-	static String pathFunctionPart2_M999CM1_DOL = 		mainPathMotor + "Import\\ImportFunctionPart2_DOL.XML";
-	static String pathFunctionPart2_M999CM1_VFD = 		mainPathMotor + "Import\\ImportFunctionPart2_VFD.XML";
+	static String pathFunctionPart2_M999CM1 = 			mainPathMotor + "Import\\ImportFunctionPart2_M999CM1.XML";
+	static String pathFunctionPart2_A999MW1_SIC = 		mainPathMotor + "Import\\ImportFunctionPart2_A999MW1_SIC.XML";
 	static String pathFunctionPart3_M999CM1 = 			mainPathMotor + "Import\\ImportFunctionPart3.XML";
 
 	static String pathScreenPart1_M999CM1 = 			mainPathMotor + "Import\\ImportScreenPart1.XML";

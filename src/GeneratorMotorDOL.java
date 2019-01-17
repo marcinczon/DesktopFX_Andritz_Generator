@@ -84,7 +84,7 @@ public class GeneratorMotorDOL
 		 
 		// Zrodlo tylko dla funkcji
 		 sourceFunctionPart1_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart1_M999CM1);
-		 sourceFunctionPart2_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart2_M999CM1_DOL);
+		 sourceFunctionPart2_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart2_M999CM1);
 		 sourceFunctionPart3_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart3_M999CM1);
 
 		// Zrodlo tylko dla Ekranu
