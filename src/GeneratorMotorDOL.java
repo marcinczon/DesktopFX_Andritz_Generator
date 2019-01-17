@@ -89,7 +89,7 @@ public class GeneratorMotorDOL
 
 		// Zrodlo tylko dla Ekranu
 		 sourceScreenPart1_M999CM1 = ReadWrite.readFile(Paths.pathScreenPart1_M999CM1);
-		 sourceScreenPart2_M999CM1 = ReadWrite.readFile(Paths.pathScreenPart2_M999CM1_DOL);
+		 sourceScreenPart2_M999CM1 = ReadWrite.readFile(Paths.pathScreenPart2_M999CM1);
 		 sourceScreenPart3_M999CM1 = ReadWrite.readFile(Paths.pathScreenPart3_M999CM1);
 
 	}

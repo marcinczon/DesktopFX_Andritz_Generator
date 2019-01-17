@@ -132,26 +132,31 @@ public final class Paths
 
 
 	//Oryginal Export Files From ZENON
-	static String pathCMD_M999CM1 = 					mainPathMotor + "Oryginal\\_CMD_M999CM1.XML";
-	static String pathCONFIG_M999CM1 = 					mainPathMotor + "Oryginal\\_CONFIG_M999CM1.XML";
-	static String pathSTAT_M999CM1 = 					mainPathMotor + "Oryginal\\_STAT_M999CM1.XML";
-	static String pathOP_HOURS_M999CM1 = 				mainPathMotor + "Oryginal\\_OP_HOURS_M999CM1.XML";
-	static String pathPUP_M999CM1_MOT = 				mainPathMotor + "Oryginal\\_PUP_M999CM1_MOT.XML";
-	static String pathSHOW_PUP_M999CM1_MOT = 			mainPathMotor + "Oryginal\\_SHOW_PUP_M999CM1_MOT.XML";
+	static String pathCMD_M999CM1 = 					mainPathMotor + "Oryginal\\Var\\_CMD_M999CM1.XML";
+	static String pathCONFIG_M999CM1 = 					mainPathMotor + "Oryginal\\Var\\_CONFIG_M999CM1.XML";
+	static String pathSTAT_M999CM1 = 					mainPathMotor + "Oryginal\\Var\\_STAT_M999CM1.XML";
 	//VFD A999MW1
-	static String pathCMD_A999MW1_SIC = 				mainPathMotor + "Oryginal\\_CMD_ A999WM1_SIC.XML";
-	static String pathCONFIG_A999WM1_SIC = 				mainPathMotor + "Oryginal\\_CONFIG_A999WM1_SIC.XML";
-	static String pathSTAT_A999WM1_SIC = 				mainPathMotor + "Oryginal\\_STAT_A999WM1_SIC.XML";	
+	static String pathCMD_A999MW1_SIC = 				mainPathMotor + "Oryginal\\Var\\_CMD_ A999WM1_SIC.XML";
+	static String pathCONFIG_A999WM1_SIC = 				mainPathMotor + "Oryginal\\Var\\_CONFIG_A999WM1_SIC.XML";
+	static String pathSTAT_A999WM1_SIC = 				mainPathMotor + "Oryginal\\Var\\_STAT_A999WM1_SIC.XML";	
+	static String pathOP_HOURS_M999CM1 = 				mainPathMotor + "Oryginal\\Var\\_OP_HOURS_M999CM1.XML";
 	
+	static String pathPUP_M999CM1_MOT = 				mainPathMotor + "Oryginal\\Scr\\_PUP_M999CM1_MOT.XML";
+	static String pathPUP_A999MW1_SIC = 				mainPathMotor + "Oryginal\\Scr\\_PUP_A999MW1_SIC.XML";
+	
+	static String pathSHOW_PUP_M999CM1_MOT = 			mainPathMotor + "Oryginal\\Fcn\\_SHOW_PUP_M999CM1_MOT.XML";
+	static String pathSHOW_PUP_A999MW1_SIC = 			mainPathMotor + "Oryginal\\Fcn\\_SHOW_PUP_A999MW1_SIC.XML";
+
+
 	//Variables From Standard Block (Seperated from Oryginal)
-	static String pathVariableCMD_M999CM1 = 			mainPathMotor + "Oryginal\\Variable_M999CM1_CMD.XML";
-	static String pathVariableSTAT_M999CM1 = 			mainPathMotor + "Oryginal\\Variable_M999CM1_STAT.XML";
-	static String pathVariableCONFIG_M999CM1 = 			mainPathMotor + "Oryginal\\Variable_M999CM1_CONFIG.XML";
-	static String pathVariableOP_HOURS_M999CM1 = 		mainPathMotor + "Oryginal\\Variable_M999CM1_OP_HOURS.XML";	
+	static String pathVariableCMD_M999CM1 = 			mainPathMotor + "Oryginal\\Var\\Variable_M999CM1_CMD.XML";
+	static String pathVariableSTAT_M999CM1 = 			mainPathMotor + "Oryginal\\Var\\Variable_M999CM1_STAT.XML";
+	static String pathVariableCONFIG_M999CM1 = 			mainPathMotor + "Oryginal\\Var\\Variable_M999CM1_CONFIG.XML";
+	static String pathVariableOP_HOURS_M999CM1 = 		mainPathMotor + "Oryginal\\Var\\Variable_M999CM1_OP_HOURS.XML";	
 	//VFD A999MW1
-	static String pathVariableCMD_A999MW1_SIC = 		mainPathMotor + "Oryginal\\Variable_A999MW1_CMD_SIC.XML";
-	static String pathVariableCONFIG_A999MW1_SIC = 		mainPathMotor + "Oryginal\\Variable_A999MW1_CONFIG_SIC.XML";
-	static String pathVariableSTAT_A999MW1_SIC = 		mainPathMotor + "Oryginal\\Variable_A999MW1_STAT_SIC.XML";
+	static String pathVariableCMD_A999MW1_SIC = 		mainPathMotor + "Oryginal\\Var\\Variable_A999MW1_CMD_SIC.XML";
+	static String pathVariableCONFIG_A999MW1_SIC = 		mainPathMotor + "Oryginal\\Var\\Variable_A999MW1_CONFIG_SIC.XML";
+	static String pathVariableSTAT_A999MW1_SIC = 		mainPathMotor + "Oryginal\\Var\\Variable_A999MW1_STAT_SIC.XML";
 	
 	//Files prepared to create one import file Part1 (static) + Part2 (generated) + Part3(Static)
 	static String pathVariablePart1_M999CM1 = 			mainPathMotor + "Import\\ImportVariablePart1.XML";
@@ -165,8 +170,8 @@ public final class Paths
 	static String pathFunctionPart3_M999CM1 = 			mainPathMotor + "Import\\ImportFunctionPart3.XML";
 
 	static String pathScreenPart1_M999CM1 = 			mainPathMotor + "Import\\ImportScreenPart1.XML";
-	static String pathScreenPart2_M999CM1_DOL = 		mainPathMotor + "Import\\ImportScreenPart2_DOL.XML";
-	static String pathScreenPart2_M999CM1_VFD = 		mainPathMotor + "Import\\ImportScreenPart2_VFD.XML";
+	static String pathScreenPart2_A999MW1_SIC = 	    mainPathMotor + "Import\\ImportScreenPart2_A999MW1_SIC.XML";
+	static String pathScreenPart2_M999CM1 = 			mainPathMotor + "Import\\ImportScreenPart2_M999CM1.XML";
 	static String pathScreenPart3_M999CM1 = 			mainPathMotor + "Import\\ImportScreenPart3.XML";
 	
 	

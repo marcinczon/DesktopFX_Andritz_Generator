@@ -5,7 +5,7 @@ public class StartMotor
 
 	public static void main(String[] args)
 	{
-		//GeneratorMotorDOL motorDOL = new GeneratorMotorDOL();
+		GeneratorMotorDOL motorDOL = new GeneratorMotorDOL();
 		GeneratorMotorVFD motorVFD = new GeneratorMotorVFD();
 		
 		try

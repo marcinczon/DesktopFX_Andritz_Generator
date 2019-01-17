@@ -32,6 +32,8 @@ public class GeneratorMotorVFD
 	String sourceSTAT_A999MW1;	
 	String sourcePUP_M999CM1_MOT;
 	String sourceSHOW_PUP_M999CM1_MOT;
+	String sourcePUP_A999MW1_SIC;
+	String sourceSHOW_PUP_A999MW1_SIC;
 
 	// Zrodla tylko dla zmiennych
 	String sourceVariableCMD_M999CM1;
@@ -53,6 +55,7 @@ public class GeneratorMotorVFD
 
 	// Zrodlo tylko dla Ekranu
 	String sourceScreenPart1_M999CM1;
+	String sourceScreenPart2_A999MW1_SIC;
 	String sourceScreenPart2_M999CM1;
 	String sourceScreenPart3_M999CM1;
 	
@@ -76,8 +79,12 @@ public class GeneratorMotorVFD
 		 sourceCMD_A999MW1 = ReadWrite.readFile(Paths.pathCMD_A999MW1);
 		 sourceCONFIG_A999MW1 = ReadWrite.readFile(Paths.pathCONFIG_A999MW1);
 		 sourceSTAT_A999MW1 = ReadWrite.readFile(Paths.pathSTAT_A999MW1);		 
+		 
 		 sourcePUP_M999CM1_MOT = ReadWrite.readFile(Paths.pathPUP_M999CM1_MOT);
 		 sourceSHOW_PUP_M999CM1_MOT = ReadWrite.readFile(Paths.pathSHOW_PUP_M999CM1_MOT);
+		 
+		 sourcePUP_A999MW1_SIC = ReadWrite.readFile(Paths.pathPUP_A999MW1_SIC);
+		 sourceSHOW_PUP_A999MW1_SIC = ReadWrite.readFile(Paths.pathSHOW_PUP_A999MW1_SIC);
 		 
 			// Zrodla tylko dla zmiennych
 		 sourceVariableCMD_M999CM1 = ReadWrite.readFile(Paths.pathVariableCMD_M999CM1);
@@ -100,9 +107,10 @@ public class GeneratorMotorVFD
 		 sourceFunctionPart3_M999CM1 = ReadWrite.readFile(Paths.pathFunctionPart3_M999CM1);
 
 		// Zrodlo tylko dla Ekranu
-		 sourceScreenPart1_M999CM1 = ReadWrite.readFile(Paths.pathScreenPart1_M999CM1);
-		 sourceScreenPart2_M999CM1 = ReadWrite.readFile(Paths.pathScreenPart2_M999CM1_VFD);
-		 sourceScreenPart3_M999CM1 = ReadWrite.readFile(Paths.pathScreenPart3_M999CM1);
+		 sourceScreenPart1_M999CM1 = 	 ReadWrite.readFile(Paths.pathScreenPart1_M999CM1);
+		 sourceScreenPart2_M999CM1 = 	 ReadWrite.readFile(Paths.pathScreenPart2_M999CM1);
+		 sourceScreenPart2_A999MW1_SIC = ReadWrite.readFile(Paths.pathScreenPart2_A999MW1_SIC);
+		 sourceScreenPart3_M999CM1 = 	 ReadWrite.readFile(Paths.pathScreenPart3_M999CM1);
 
 	}
 	
@@ -180,10 +188,16 @@ public class GeneratorMotorVFD
 			// Utworzenie Ekranow
 			ReadWrite.createFileAndFill(Paths.outputPathMotorVFD + strings[0] + "\\", "PUP_" + strings[0] + "_BIN" + ".XML", praseStringPUP_M999CM1(sourcePUP_M999CM1_MOT, strings), 0);
 			stringBuilderScreen.append(praseStringPUP_M999CM1(sourceScreenPart2_M999CM1, strings));
+			
+			ReadWrite.createFileAndFill(Paths.outputPathMotorVFD + strings[0] + "\\", "PUP_" + strings[0] + "_SIC_BIN" + ".XML", praseStringPUP_A999MW1_SIC(sourcePUP_A999MW1_SIC, strings), 0);
+			stringBuilderScreen.append(praseStringPUP_A999MW1_SIC(sourceScreenPart2_A999MW1_SIC, strings));
 
 			// Utworzenie Funkcji
 			ReadWrite.createFileAndFill(Paths.outputPathMotorVFD + strings[0] + "\\", "SHOW_PUP_" + strings[0] + "_BIN" + ".XML", praseStringSHOW_PUP_M999CM1(sourceSHOW_PUP_M999CM1_MOT, strings), 0);
 			stringBuilderFunctions.append(praseStringSHOW_PUP_M999CM1(sourceFunctionPart2_M999CM1, strings));
+			
+		//	ReadWrite.createFileAndFill(Paths.outputPathMotorVFD + strings[0] + "\\", "SHOW_PUP_" + strings[0] + "_SIC_BIN" + ".XML", praseStringSHOW_PUP_M999CM1(sourceSHOW_PUP_A999MW1_SIC, strings), 0);
+		//	stringBuilderFunctions.append(praseStringSHOW_PUP_M999CM1(sourceFunctionPart2_M999CM1, strings));
 		}
 
 		//ReadWrite.createFileAndFill(Paths.outputPathMOTOR, "ImportMOTORVariables.XML", stringBuilderVariables.toString(), 1);
@@ -275,5 +289,31 @@ public class GeneratorMotorVFD
 		newSource_M999CM1 = newSource_M999CM1.replaceAll("@TEMPOERARY OVERVIEW", "@PUP_" + name + "_MOTOR");
 
 		return newSource_M999CM1;
+	}
+	
+	
+	private static String praseStringPUP_A999MW1_SIC(String source, String[] parameters)
+	{
+		String newSource_A999MW1 = new String(source);
+		String name = parameters[0];
+
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("A999MW1", name);
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("<SubstituteSource />", "<SubstituteSource>*A999MW1*</SubstituteSource>");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("\\*" + name + "\\*", "*A999MW1*");
+
+		return newSource_A999MW1;
+	}
+	
+	
+	private static String praseStringSHOW_PUP_A999MW1(String source, String[] parameters)
+	{
+		String newSource_A999MW1 = new String(source);
+		String name = parameters[0];
+
+		
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("A999MW1", name);
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("@TEMPOERARY OVERVIEW", "@PUP_" + name + "_MOTOR");
+
+		return newSource_A999MW1;
 	}
 }
