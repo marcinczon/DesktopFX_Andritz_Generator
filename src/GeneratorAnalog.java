@@ -66,9 +66,9 @@ public class GeneratorAnalog
 		 sourceSHOW_PUP_A999MW1_BIN = ReadWrite.readFile(Paths.pathSHOW_PUP_A999MW1_ANALOG);
 
 		// Zrodla tylko dla zmiennych
-		 sourceVariableCMD_A999MW1 = ReadWrite.readFile(Paths.pathVariableCMD_A999MW1);
-		 sourceVariableCONFIG_A999MW1 = ReadWrite.readFile(Paths.pathVariableCONFIG_A999MW1);
-		 sourceVariableSTAT_A999MW1 = ReadWrite.readFile(Paths.pathVariableSTAT_A999MW1);
+		 sourceVariableCMD_A999MW1 = ReadWrite.readFile(Paths.pathVariableCMD_A999MW1_SIC);
+		 sourceVariableCONFIG_A999MW1 = ReadWrite.readFile(Paths.pathVariableCONFIG_A999MW1_SIC);
+		 sourceVariableSTAT_A999MW1 = ReadWrite.readFile(Paths.pathVariableSTAT_A999MW1_SIC);
 
 		// Zrodlo tylko dla zmiennych
 		 sourceVariablePart1_A999MW1 = ReadWrite.readFile(Paths.pathVariablePart1_A999MW1);

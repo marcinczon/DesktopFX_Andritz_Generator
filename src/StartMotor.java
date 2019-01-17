@@ -5,11 +5,13 @@ public class StartMotor
 
 	public static void main(String[] args)
 	{
-		GeneratorMotorDOL motor = new GeneratorMotorDOL();
+		//GeneratorMotorDOL motorDOL = new GeneratorMotorDOL();
+		GeneratorMotorVFD motorVFD = new GeneratorMotorVFD();
 		
 		try
 		{
-			motor.CreateOutputsFiles();
+		//	motorDOL.CreateOutputsFiles();
+			motorVFD.CreateOutputsFiles();
 		} catch (IOException e)
 		{
 			
