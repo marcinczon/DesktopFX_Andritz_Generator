@@ -1,3 +1,4 @@
+package Utils;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,7 +7,7 @@ import java.nio.file.Paths;
 
 public class ReadWrite
 {
-	static String readFile(String filePath)
+	public static String readFile(String filePath)
 	{
 		String content = null;
 		try

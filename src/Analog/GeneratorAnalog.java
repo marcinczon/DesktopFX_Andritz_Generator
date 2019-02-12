@@ -1,9 +1,12 @@
+package Analog;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Utils.Paths;
+import Utils.ReadWrite;
 public class GeneratorAnalog
 {
 	
@@ -13,7 +16,7 @@ public class GeneratorAnalog
 	//
 	//*******************
 	
-	static int IdComplex = 92000;
+	static int IdComplex = 96000;
 	
 	ArrayList<String> bufferArrayList = new ArrayList<>();
 
@@ -33,6 +36,10 @@ public class GeneratorAnalog
 	String sourceVariableCMD_A999MW1;
 	String sourceVariableCONFIG_A999MW1;
 	String sourceVariableSTAT_A999MW1;
+	
+//	String sourceVariableCMD_A999MW1_SIC;
+//	String sourceVariableCONFIG_A999MW1_SIC;
+//	String sourceVariableSTAT_A999MW1_SIC;
 	
 	String sourceVariablePart1_A999MW1;
 	String sourceVariablePart2_A999MW1;
@@ -66,9 +73,14 @@ public class GeneratorAnalog
 		 sourceSHOW_PUP_A999MW1_BIN = ReadWrite.readFile(Paths.pathSHOW_PUP_A999MW1_ANALOG);
 
 		// Zrodla tylko dla zmiennych
-		 sourceVariableCMD_A999MW1 = ReadWrite.readFile(Paths.pathVariableCMD_A999MW1_SIC);
-		 sourceVariableCONFIG_A999MW1 = ReadWrite.readFile(Paths.pathVariableCONFIG_A999MW1_SIC);
-		 sourceVariableSTAT_A999MW1 = ReadWrite.readFile(Paths.pathVariableSTAT_A999MW1_SIC);
+//		 sourceVariableCMD_A999MW1_SIC = ReadWrite.readFile(Paths.pathVariableCMD_A999MW1_SIC);
+//		 sourceVariableCONFIG_A999MW1_SIC = ReadWrite.readFile(Paths.pathVariableCONFIG_A999MW1_SIC);
+//		 sourceVariableSTAT_A999MW1_SIC = ReadWrite.readFile(Paths.pathVariableSTAT_A999MW1_SIC);
+		 
+		// Zrodla tylko dla zmiennych
+		 sourceVariableCMD_A999MW1 = ReadWrite.readFile(Paths.pathVariableCMD_A999MW1);
+		 sourceVariableCONFIG_A999MW1 = ReadWrite.readFile(Paths.pathVariableCONFIG_A999MW1);
+		 sourceVariableSTAT_A999MW1 = ReadWrite.readFile(Paths.pathVariableSTAT_A999MW1);
 
 		// Zrodlo tylko dla zmiennych
 		 sourceVariablePart1_A999MW1 = ReadWrite.readFile(Paths.pathVariablePart1_A999MW1);
@@ -129,34 +141,34 @@ public class GeneratorAnalog
 		// jednego pliku
 		// *********************************************
 
-		for (String[] strings : devicesArrayList)
+		for (String[] variableParameters : devicesArrayList)
 		{
+			
+			String VariableName = variableParameters[0];
+			
 			// Utworzenie folderu dla urzadzenia
-			System.out.print(strings[0] + "\n");
-			ReadWrite.createFolder(Paths.outputPathAnalog + strings[0]);
+			System.out.print(VariableName + "\n");
+			ReadWrite.createFolder(Paths.outputPathAnalog + VariableName);
 
 			// Utworzenie Variables
-			ReadWrite.createFileAndFill(Paths.outputPathAnalog + strings[0] + "\\", "CMD_" + strings[0] + ".XML", praseString_A999MW1(sourceCMD_A999MW1, strings, 4), 0);
-			stringBuilderVariables.append(praseString_A999MW1(sourceVariableCMD_A999MW1, strings, 4));
-														      
+			ReadWrite.createFileAndFill(Paths.outputPathAnalog + VariableName + "\\", "CMD_" + VariableName + ".XML", praseString_A999MW1(sourceCMD_A999MW1, variableParameters, 4), 0);
+			stringBuilderVariables.append(praseString_A999MW1(sourceVariableCMD_A999MW1, variableParameters, 4));														      
 
-			ReadWrite.createFileAndFill(Paths.outputPathAnalog + strings[0] + "\\", "CONFIG_" + strings[0] + ".XML", praseString_A999MW1(sourceCONFIG_A999MW1, strings, 5), 0);
-			stringBuilderVariables.append(praseString_A999MW1(sourceVariableCONFIG_A999MW1, strings, 5));
+			ReadWrite.createFileAndFill(Paths.outputPathAnalog + VariableName + "\\", "CONFIG_" + VariableName + ".XML", praseString_A999MW1(sourceCONFIG_A999MW1, variableParameters, 5), 0);
+			stringBuilderVariables.append(praseString_A999MW1(sourceVariableCONFIG_A999MW1, variableParameters, 5));
 
-			ReadWrite.createFileAndFill(Paths.outputPathAnalog + strings[0] + "\\", "STAT_" + strings[0] + ".XML", praseString_A999MW1(sourceSTAT_A999MW1, strings, 6), 0);
-			stringBuilderVariables.append(praseString_A999MW1(sourceVariableSTAT_A999MW1, strings, 6));
+			ReadWrite.createFileAndFill(Paths.outputPathAnalog + VariableName + "\\", "STAT_" + VariableName + ".XML", praseString_A999MW1(sourceSTAT_A999MW1, variableParameters, 6), 0);
+			stringBuilderVariables.append(praseString_A999MW1(sourceVariableSTAT_A999MW1, variableParameters, 6));
 
 			// Utworzenie Ekranow
-			ReadWrite.createFileAndFill(Paths.outputPathAnalog + strings[0] + "\\", "PUP_" + strings[0] + "_BIN" + ".XML", praseStringPUP_A999MW1(sourcePUP_A999MW1_BIN, strings), 0);
-			stringBuilderScreen.append(praseStringPUP_A999MW1(sourceScreenPart2_A999MW1, strings));
+			ReadWrite.createFileAndFill(Paths.outputPathAnalog + VariableName + "\\", "PUP_" + VariableName + "_BIN" + ".XML", praseStringPUP_A999MW1(sourcePUP_A999MW1_BIN, variableParameters), 0);
+			stringBuilderScreen.append(praseStringPUP_A999MW1(sourceScreenPart2_A999MW1, variableParameters));
 
 			// Utworzenie Funkcji
-			ReadWrite.createFileAndFill(Paths.outputPathAnalog + strings[0] + "\\", "SHOW_PUP_" + strings[0] + "_BIN" + ".XML", praseStringSHOW_PUP_A999MW1(sourceSHOW_PUP_A999MW1_BIN, strings), 0);
-			stringBuilderFunctions.append(praseStringSHOW_PUP_A999MW1(sourceFunctionPart2_A999MW1, strings));
+			ReadWrite.createFileAndFill(Paths.outputPathAnalog + VariableName + "\\", "SHOW_PUP_" + VariableName + "_BIN" + ".XML", praseStringSHOW_PUP_A999MW1(sourceSHOW_PUP_A999MW1_BIN, variableParameters), 0);
+			stringBuilderFunctions.append(praseStringSHOW_PUP_A999MW1(sourceFunctionPart2_A999MW1, variableParameters));
 		}
-
-		//ReadWrite.createFileAndFill(Paths.outputPathAnalog, "ImportAnalogVariables.XML", stringBuilderVariables.toString(), 1);
-
+		
 		// *********************************************
 		//
 		// Utworzenie jednego pliku do imporu zmiennych
@@ -184,18 +196,19 @@ public class GeneratorAnalog
 	{
 		String newSource_A999MW1 = new String(source);
 		String name = parameters[0];
-		String tagName = parameters[1] + "  " + parameters[2] + "  " + parameters[3];
+		String description = parameters[1] + "  " + parameters[2] + "  " + parameters[3];
 		String offSet = parameters[offsetParameter].replaceAll("\\D+", "");
 		String netAdress = parameters[7];
 
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("A999MW1", name);
-		newSource_A999MW1 = newSource_A999MW1.replaceAll("<ID_Complex>.*.</ID_Complex>", "<ID_Complex>" + IdComplex + "</ID_Complex>");
-		newSource_A999MW1 = newSource_A999MW1.replaceAll("<ID_ComplexVariable>.*.</ID_ComplexVariable>", "<ID_ComplexVariable>" + IdComplex + "</ID_ComplexVariable>");
-		newSource_A999MW1 = newSource_A999MW1.replaceAll("<Tagname />", "<Tagname>" + tagName + "</Tagname>");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("<ID_Complex>.*.</ID_Complex>", "<ID_Complex>" + IdComplex++ + "</ID_Complex>");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("<ID_ComplexVariable>.*.</ID_ComplexVariable>", "<ID_ComplexVariable>" + IdComplex++ + "</ID_ComplexVariable>");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("<Tagname />", "<Tagname>" + description + "</Tagname>");
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("<Offset>0</Offset>", "<Offset>" + offSet + "</Offset>");
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("<NetAddr>1</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("Identification", "@"+name + " - " + description);
+		
 
-		IdComplex++;
 		stringBulder.append(newSource_A999MW1);
 
 		return newSource_A999MW1;

@@ -1,8 +1,12 @@
+package Motors;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import Utils.Paths;
+import Utils.ReadWrite;
 
 public class GeneratorMotorDOL
 {
@@ -17,10 +21,10 @@ public class GeneratorMotorDOL
 	
 	ArrayList<String> bufferArrayList = new ArrayList<>();
 
-	static StringBuilder stringBulder = new StringBuilder();
+	static StringBuilder stringBulder 			= new StringBuilder();
 	static StringBuilder stringBuilderVariables = new StringBuilder();
 	static StringBuilder stringBuilderFunctions = new StringBuilder();
-	static StringBuilder stringBuilderScreen = new StringBuilder();
+	static StringBuilder stringBuilderScreen 	= new StringBuilder();
 	
 	// Zrodla z calego pliku oryginalnego
 	String sourceCMD_M999CM1;
@@ -138,29 +142,31 @@ public class GeneratorMotorDOL
 
 		for (String[] strings : devicesArrayList)
 		{
+			String name = strings[0];
+			
 			// Utworzenie folderu dla urzadzenia
-			System.out.print(strings[0] + "\n");
-			ReadWrite.createFolder(Paths.outputPathMotorDOL + strings[0]);
+			System.out.print(name + "\n");
+			ReadWrite.createFolder(Paths.outputPathMotorDOL + name);
 
 			// Utworzenie Variables
-			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + strings[0] + "\\", "CMD_" + strings[0] + ".XML", praseString_M999CM1(sourceCMD_M999CM1, strings, 4), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + name + "\\", "CMD_" + name + ".XML", praseString_M999CM1(sourceCMD_M999CM1, strings, 4), 0);
 			stringBuilderVariables.append(praseString_M999CM1(sourceVariableCMD_M999CM1, strings, 4));
 														      
-			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + strings[0] + "\\", "CONFIG_" + strings[0] + ".XML", praseString_M999CM1(sourceCONFIG_M999CM1, strings, 5), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + name + "\\", "CONFIG_" + name + ".XML", praseString_M999CM1(sourceCONFIG_M999CM1, strings, 5), 0);
 			stringBuilderVariables.append(praseString_M999CM1(sourceVariableCONFIG_M999CM1, strings, 5));
 
-			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + strings[0] + "\\", "STAT_" + strings[0] + ".XML", praseString_M999CM1(sourceSTAT_M999CM1, strings, 6), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + name + "\\", "STAT_" + name + ".XML", praseString_M999CM1(sourceSTAT_M999CM1, strings, 6), 0);
 			stringBuilderVariables.append(praseString_M999CM1(sourceVariableSTAT_M999CM1, strings, 6));
 
-			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + strings[0] + "\\", "OP_HOURS_" + strings[7] + ".XML", praseString_M999CM1(sourceOP_HOURS_M999CM1, strings, 7), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + name + "\\", "OP_HOURS_" + strings[7] + ".XML", praseString_M999CM1(sourceOP_HOURS_M999CM1, strings, 7), 0);
 			stringBuilderVariables.append(praseString_M999CM1(sourceVariableOP_HOURS_M999CM1, strings, 7));
 			
 			// Utworzenie Ekranow
-			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + strings[0] + "\\", "PUP_" + strings[0] + "_BIN" + ".XML", praseStringPUP_M999CM1(sourcePUP_M999CM1_MOT, strings), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + name + "\\", "PUP_" + name + "_BIN" + ".XML", praseStringPUP_M999CM1(sourcePUP_M999CM1_MOT, strings), 0);
 			stringBuilderScreen.append(praseStringPUP_M999CM1(sourceScreenPart2_M999CM1, strings));
 
 			// Utworzenie Funkcji
-			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + strings[0] + "\\", "SHOW_PUP_" + strings[0] + "_BIN" + ".XML", praseStringSHOW_PUP_M999CM1(sourceSHOW_PUP_M999CM1_MOT, strings), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathMotorDOL + name + "\\", "SHOW_PUP_" + name + "_BIN" + ".XML", praseStringSHOW_PUP_M999CM1(sourceSHOW_PUP_M999CM1_MOT, strings), 0);
 			stringBuilderFunctions.append(praseStringSHOW_PUP_M999CM1(sourceFunctionPart2_M999CM1, strings));
 		}
 
@@ -191,20 +197,21 @@ public class GeneratorMotorDOL
 
 	private static String praseString_M999CM1(String source, String[] parameters, int offsetParameter)
 	{
-		String newSource_M999CM1 = new String(source);
-		String name = parameters[0];
-		String tagName = parameters[1] + "  " + parameters[2] + "  " + parameters[3];
-		String offSet = parameters[offsetParameter].replaceAll("\\D+", "");
-		String netAdress = parameters[8];
+		String newSource_M999CM1 	= new String(source);
+		String name 				= parameters[0];
+		String description 			= parameters[1] + "  " + parameters[2] + "  " + parameters[3];
+		String offSet 				= parameters[offsetParameter].replaceAll("\\D+", "");
+		String netAdress 			= parameters[8];
 
 		newSource_M999CM1 = newSource_M999CM1.replaceAll("M999CM1", name);
-		newSource_M999CM1 = newSource_M999CM1.replaceAll("<ID_Complex>.*.</ID_Complex>", "<ID_Complex>" + IdComplex + "</ID_Complex>");
-		newSource_M999CM1 = newSource_M999CM1.replaceAll("<ID_ComplexVariable>.*.</ID_ComplexVariable>", "<ID_ComplexVariable>" + IdComplex + "</ID_ComplexVariable>");
-		newSource_M999CM1 = newSource_M999CM1.replaceAll("<Tagname />", "<Tagname>" + tagName + "</Tagname>");
+		newSource_M999CM1 = newSource_M999CM1.replaceAll("<ID_Complex>.*.</ID_Complex>", "<ID_Complex>" + IdComplex++ + "</ID_Complex>");
+		newSource_M999CM1 = newSource_M999CM1.replaceAll("<ID_ComplexVariable>.*.</ID_ComplexVariable>", "<ID_ComplexVariable>" + IdComplex++ + "</ID_ComplexVariable>");
+		newSource_M999CM1 = newSource_M999CM1.replaceAll("<Tagname />", "<Tagname>" + description + "</Tagname>");
 		newSource_M999CM1 = newSource_M999CM1.replaceAll("<Offset>0</Offset>", "<Offset>" + offSet + "</Offset>");
 		newSource_M999CM1 = newSource_M999CM1.replaceAll("<NetAddr>1</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
-
-		IdComplex++;
+		newSource_M999CM1 = newSource_M999CM1.replaceAll("Identification", "@"+name + " - " + description);
+		
+		
 		stringBulder.append(newSource_M999CM1);
 
 		return newSource_M999CM1;

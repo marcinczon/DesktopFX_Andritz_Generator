@@ -1,3 +1,4 @@
+package Binary;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import GUI.gui;
+import GraphicInterface.gui;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
 //
 //
 // *********************************************
-public class StartBinary extends Application
+public class StartBinaryOld extends Application
 {
 
 	static gui gui;
