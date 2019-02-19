@@ -16,7 +16,7 @@ public class ReadWrite
 
 		} catch (IOException e)
 		{
-			e.printStackTrace();
+			Messages.ShowError(e.toString());
 		}
 		return content;
 	}
@@ -26,10 +26,10 @@ public class ReadWrite
 		boolean success = (new File(path)).mkdirs();
 		if (!success)
 		{
-			System.err.println("Path not created : " + path);
+			Messages.ShowWarning("Path not created : " + path);
 		} else
 		{
-			System.out.println("Path created : " + path);
+			Messages.ShowMessage("Path created : " + path);
 		}
 
 	}
@@ -45,15 +45,14 @@ public class ReadWrite
 		{
 			if (file.createNewFile())
 			{
-				System.out.println("Created file: " + name);
+				Messages.ShowMessage("Created file: " + name);
 			} else
 			{
-				System.err.println("File already exists: " + name);
+				Messages.ShowWarning("File already exists: " + name);
 			}
 		} catch (IOException e)
 		{
-
-			e.printStackTrace();
+			Messages.ShowError(e.toString());
 		}
 
 		try
@@ -70,8 +69,7 @@ public class ReadWrite
 			writer.close();
 		} catch (IOException e1)
 		{
-			System.err.println("ERROR: Cant fill file by source!");
-			e1.printStackTrace();
+			Messages.ShowError(e1.toString());
 		}
 	}
 }

@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Utils.Messages;
 import Utils.Paths;
 import Utils.ReadWrite;
+import Utils.Settings;
 public class GeneratorAnalog
 {
 	
@@ -16,7 +18,7 @@ public class GeneratorAnalog
 	//
 	//*******************
 	
-	static int IdComplex = 96000;
+	static int IdComplex = Settings.IdComplexAnalog;
 	
 	ArrayList<String> bufferArrayList = new ArrayList<>();
 
@@ -59,6 +61,8 @@ public class GeneratorAnalog
 
 	public GeneratorAnalog()
 	{
+		Messages.ShowMessage("Generator Analog");
+		
 		// *********************************************+
 		//
 		// Odczyt z plikow zrodel
@@ -99,7 +103,7 @@ public class GeneratorAnalog
 
 	}
 	
-	public void CreateOutputsFiles() throws FileNotFoundException, IOException
+	public void CreateOutputsFiles(String dataType) throws FileNotFoundException, IOException
 	{
 
 		// *********************************************+
@@ -147,7 +151,7 @@ public class GeneratorAnalog
 			String VariableName = variableParameters[0];
 			
 			// Utworzenie folderu dla urzadzenia
-			System.out.print(VariableName + "\n");
+			Messages.ShowMessage(dataType + " - " + VariableName + "\n");
 			ReadWrite.createFolder(Paths.outputPathAnalog + VariableName);
 
 			// Utworzenie Variables
@@ -204,8 +208,8 @@ public class GeneratorAnalog
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("<ID_Complex>.*.</ID_Complex>", "<ID_Complex>" + IdComplex++ + "</ID_Complex>");
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("<ID_ComplexVariable>.*.</ID_ComplexVariable>", "<ID_ComplexVariable>" + IdComplex++ + "</ID_ComplexVariable>");
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("<Tagname />", "<Tagname>" + description + "</Tagname>");
-		newSource_A999MW1 = newSource_A999MW1.replaceAll("<Offset>0</Offset>", "<Offset>" + offSet + "</Offset>");
-		newSource_A999MW1 = newSource_A999MW1.replaceAll("<NetAddr>1</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("<Offset>.*.</Offset>", "<Offset>" + offSet + "</Offset>");
+		newSource_A999MW1 = newSource_A999MW1.replaceAll("<NetAddr>.*.</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
 		newSource_A999MW1 = newSource_A999MW1.replaceAll("Identification", "@"+name + " - " + description);
 		
 

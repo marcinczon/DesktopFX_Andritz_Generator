@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Utils.Messages;
 import Utils.Paths;
 import Utils.ReadWrite;
+import Utils.Settings;
 
 public class GeneratorBinary
 {
@@ -17,7 +19,7 @@ public class GeneratorBinary
 	//
 	// *******************
 
-	static int IdComplex = 92000;
+	static int IdComplex = Settings.IdComplexBinary;
 
 	ArrayList<String> bufferArrayList = new ArrayList<>();
 
@@ -54,6 +56,8 @@ public class GeneratorBinary
 
 	public GeneratorBinary()
 	{
+		Messages.ShowMessage("Generator Binary");
+		
 		// *********************************************+
 		//
 		// Odczyt z plikow zrodelowych
@@ -88,7 +92,7 @@ public class GeneratorBinary
 		sourceScreenPart3_B999GS1 = ReadWrite.readFile(Paths.pathScreenPart3_B999GS1);
 	}
 
-	public void CreateOutputsFiles() throws FileNotFoundException, IOException
+	public void CreateOutputsFiles(String dataType) throws FileNotFoundException, IOException
 	{
 
 		// *********************************************+
@@ -136,25 +140,25 @@ public class GeneratorBinary
 			String VariableName = variableParameters[0];
 			
 			// Utworzenie folderu dla urzadzenia
-			System.out.print(VariableName + "\n");
-			ReadWrite.createFolder(Paths.outputPathBinary + VariableName);
+			Messages.ShowMessage(dataType + " - " + VariableName + "\n");
+			ReadWrite.createFolder(Paths.outputPathPID + VariableName);
 
 			// Utworzenie Variables
-			ReadWrite.createFileAndFill(Paths.outputPathBinary + VariableName + "\\", "CMD_" + VariableName + ".XML", praseStringVariable_B999GS1(sourceCMD_B999GS1, variableParameters, 4), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "CMD_" + VariableName + ".XML", praseStringVariable_B999GS1(sourceCMD_B999GS1, variableParameters, 4), 0);
 			stringBuilderVariables.append(praseStringVariable_B999GS1(sourceVariableCMD_B999GS1, variableParameters, 4));
 
-			ReadWrite.createFileAndFill(Paths.outputPathBinary + VariableName + "\\", "CONFIG_" + VariableName + ".XML", praseStringVariable_B999GS1(sourceCONFIG_B999GS1, variableParameters, 5), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "CONFIG_" + VariableName + ".XML", praseStringVariable_B999GS1(sourceCONFIG_B999GS1, variableParameters, 5), 0);
 			stringBuilderVariables.append(praseStringVariable_B999GS1(sourceVariableCONFIG_B999GS1, variableParameters, 5));
 
-			ReadWrite.createFileAndFill(Paths.outputPathBinary + VariableName + "\\", "STAT_" + VariableName + ".XML", praseStringVariable_B999GS1(sourceSTAT_B999GS1, variableParameters, 6), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "STAT_" + VariableName + ".XML", praseStringVariable_B999GS1(sourceSTAT_B999GS1, variableParameters, 6), 0);
 			stringBuilderVariables.append(praseStringVariable_B999GS1(sourceVariableSTAT_B999GS1, variableParameters, 6));
 
 			// Utworzenie Ekranow
-			ReadWrite.createFileAndFill(Paths.outputPathBinary + VariableName + "\\", "PUP_" + VariableName + "_BIN" + ".XML", praseStringPUP_B999GS1(sourcePUP_B999GS1_BIN, variableParameters), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "PUP_" + VariableName + "_BIN" + ".XML", praseStringPUP_B999GS1(sourcePUP_B999GS1_BIN, variableParameters), 0);
 			stringBuilderScreen.append(praseStringPUP_B999GS1(sourceScreenPart2_B999GS1, variableParameters));
 
 			// Utworzenie Funkcji
-			ReadWrite.createFileAndFill(Paths.outputPathBinary + VariableName + "\\", "SHOW_PUP_" + VariableName + "_BIN" + ".XML", praseStringSHOW_PUP_B999GS1(sourceSHOW_PUP_B999GS1_BIN, variableParameters), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "SHOW_PUP_" + VariableName + "_BIN" + ".XML", praseStringSHOW_PUP_B999GS1(sourceSHOW_PUP_B999GS1_BIN, variableParameters), 0);
 			stringBuilderFunctions.append(praseStringSHOW_PUP_B999GS1(sourceFunctionPart2_B999GS1, variableParameters));
 		}
 
@@ -174,9 +178,9 @@ public class GeneratorBinary
 		//
 		// *********************************************
 
-		ReadWrite.createFileAndFill(Paths.outputPathBinary, "ImportBinaryVariable.XML", sourceVariablePart1_B999GS1 + stringBuilderVariables + sourceVariablePart3_B999GS1, 0);
-		ReadWrite.createFileAndFill(Paths.outputPathBinary, "ImportBinaryFunction.XML", sourceFunctionPart1_B999GS1 + stringBuilderFunctions + sourceFunctionPart3_B999GS1, 0);
-		ReadWrite.createFileAndFill(Paths.outputPathBinary, "ImportBinaryScreen.XML",   sourceScreenPart1_B999GS1 + stringBuilderScreen + sourceScreenPart3_B999GS1, 0);
+		ReadWrite.createFileAndFill(Paths.outputPathPID, "ImportBinaryVariable.XML", sourceVariablePart1_B999GS1 + stringBuilderVariables + sourceVariablePart3_B999GS1, 0);
+		ReadWrite.createFileAndFill(Paths.outputPathPID, "ImportBinaryFunction.XML", sourceFunctionPart1_B999GS1 + stringBuilderFunctions + sourceFunctionPart3_B999GS1, 0);
+		ReadWrite.createFileAndFill(Paths.outputPathPID, "ImportBinaryScreen.XML",   sourceScreenPart1_B999GS1 + stringBuilderScreen + sourceScreenPart3_B999GS1, 0);
 
 	}
 
@@ -192,8 +196,8 @@ public class GeneratorBinary
 		newSource_B999GS1 = newSource_B999GS1.replaceAll("<ID_Complex>.*.</ID_Complex>", "<ID_Complex>" + IdComplex++ + "</ID_Complex>");
 		newSource_B999GS1 = newSource_B999GS1.replaceAll("<ID_ComplexVariable>.*.</ID_ComplexVariable>", "<ID_ComplexVariable>" + IdComplex++ + "</ID_ComplexVariable>");
 		newSource_B999GS1 = newSource_B999GS1.replaceAll("<Tagname />", "<Tagname>" + description + "</Tagname>");
-		newSource_B999GS1 = newSource_B999GS1.replaceAll("<Offset>0</Offset>", "<Offset>" + offSet + "</Offset>");
-		newSource_B999GS1 = newSource_B999GS1.replaceAll("<NetAddr>1</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
+		newSource_B999GS1 = newSource_B999GS1.replaceAll("<Offset>.*.</Offset>", "<Offset>" + offSet + "</Offset>");
+		newSource_B999GS1 = newSource_B999GS1.replaceAll("<NetAddr>.*.</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
 		newSource_B999GS1 = newSource_B999GS1.replaceAll("Identification", "@"+name + " - " + description);
 		
 		

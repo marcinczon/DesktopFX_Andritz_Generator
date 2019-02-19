@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Utils.Messages;
 import Utils.Paths;
 import Utils.ReadWrite;
 import Utils.Settings;
@@ -19,7 +20,7 @@ public class GeneratorValves
 	//*******************
 	
 
-    public static int IdComplex = 94000;
+	static int IdComplex = Settings.IdComplexValveV1;
     
 	ArrayList<String> bufferArrayList = new ArrayList<>();
 
@@ -56,6 +57,7 @@ public class GeneratorValves
 
 	public GeneratorValves()
 	{
+		Messages.ShowMessage("Generator Valve");
 		
 		// *********************************************+
 		//
@@ -90,7 +92,7 @@ public class GeneratorValves
 
 	}
 	
-	public void CreateOutputsFiles() throws FileNotFoundException, IOException
+	public void CreateOutputsFiles(String dataType) throws FileNotFoundException, IOException
 	{
 
 		// *********************************************+
@@ -137,23 +139,23 @@ public class GeneratorValves
 			String VariableName = variableParameters[0];
 			
 			// Utworzenie folderu dla urzadzenia
-			System.out.print(VariableName + "\n");
-			ReadWrite.createFolder(Paths.outputPathValve + VariableName);
+			Messages.ShowMessage(dataType + " - " + VariableName + "\n");
+			ReadWrite.createFolder(Paths.outputPathPID + VariableName);
 
 			// Utworzenie Variables
-			ReadWrite.createFileAndFill(Paths.outputPathValve + VariableName + "\\", "STAT_" + VariableName + ".XML", praseString_V999MV1(sourceSTAT_V999MV1, variableParameters, 6), 0);
-			stringBuilderVariables.append(praseString_V999MV1(sourceVariableSTAT_V999MV1, variableParameters, 6));
-
-			ReadWrite.createFileAndFill(Paths.outputPathValve + VariableName + "\\", "CMD_" + VariableName + ".XML", praseString_V999MV1(sourceCMD_V999MV1, variableParameters, 4), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "CMD_" + VariableName + ".XML", praseString_V999MV1(sourceCMD_V999MV1, variableParameters, 4), 0);
 			stringBuilderVariables.append(praseString_V999MV1(sourceVariableCMD_V999MV1, variableParameters, 4));
-														
+			
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "STAT_" + VariableName + ".XML", praseString_V999MV1(sourceSTAT_V999MV1, variableParameters, 6), 0);
+			stringBuilderVariables.append(praseString_V999MV1(sourceVariableSTAT_V999MV1, variableParameters, 6));
+													
 
 			// Utworzenie Ekranow
-			ReadWrite.createFileAndFill(Paths.outputPathValve + VariableName + "\\", "PUP_" + VariableName + "_BIN" + ".XML", praseStringPUP_V999MV1(sourcePUP_V999MV1_BIN, variableParameters), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "PUP_" + VariableName + "_BIN" + ".XML", praseStringPUP_V999MV1(sourcePUP_V999MV1_BIN, variableParameters), 0);
 			stringBuilderScreen.append(praseStringPUP_V999MV1(sourceScreenPart2_V999MV1, variableParameters));
 
 			// Utworzenie Funkcji
-			ReadWrite.createFileAndFill(Paths.outputPathValve + VariableName + "\\", "SHOW_PUP_" + VariableName + "_BIN" + ".XML", praseStringSHOW_PUP_V999MV1(sourceSHOW_PUP_V999MV1_BIN, variableParameters), 0);
+			ReadWrite.createFileAndFill(Paths.outputPathPID + VariableName + "\\", "SHOW_PUP_" + VariableName + "_BIN" + ".XML", praseStringSHOW_PUP_V999MV1(sourceSHOW_PUP_V999MV1_BIN, variableParameters), 0);
 			stringBuilderFunctions.append(praseStringSHOW_PUP_V999MV1(sourceFunctionPart2_V999MV1, variableParameters));
 		}
 
@@ -176,9 +178,9 @@ public class GeneratorValves
 		// *********************************************
 
 		
-		ReadWrite.createFileAndFill(Paths.outputPathValve, "ImportValveVariable.XML", sourceVariablePart1_V999MV1 + stringBuilderVariables + sourceVariablePart3_V999MV1, 0);
-		ReadWrite.createFileAndFill(Paths.outputPathValve, "ImportFunction.XML", sourceFunctionPart1_V999MV1 + stringBuilderFunctions + sourceFunctionPart3_V999MV1, 0);
-		ReadWrite.createFileAndFill(Paths.outputPathValve, "ImportScreen.XML", sourceScreenPart1_V999MV1 + stringBuilderScreen + sourceScreenPart3_V999MV1, 0);
+		ReadWrite.createFileAndFill(Paths.outputPathPID, "ImportValveVariable.XML", sourceVariablePart1_V999MV1 + stringBuilderVariables + sourceVariablePart3_V999MV1, 0);
+		ReadWrite.createFileAndFill(Paths.outputPathPID, "ImportFunction.XML", sourceFunctionPart1_V999MV1 + stringBuilderFunctions + sourceFunctionPart3_V999MV1, 0);
+		ReadWrite.createFileAndFill(Paths.outputPathPID, "ImportScreen.XML", sourceScreenPart1_V999MV1 + stringBuilderScreen + sourceScreenPart3_V999MV1, 0);
 
 	}
 
@@ -190,21 +192,14 @@ public class GeneratorValves
 		String offSet = parameters[offsetParameter].replaceAll("\\D+", "");
 		String netAdress = parameters[7];
 
-	
 		newSource_V999MV1 = newSource_V999MV1.replaceAll("V999MV1", name);
 		newSource_V999MV1 = newSource_V999MV1.replaceAll("<ID_Complex>.*.</ID_Complex>", "<ID_Complex>" + IdComplex++ + "</ID_Complex>");
-		System.out.println("IdComplex : "+IdComplex);
 		newSource_V999MV1 = newSource_V999MV1.replaceAll("<ID_ComplexVariable>.*.</ID_ComplexVariable>", "<ID_ComplexVariable>" + IdComplex++ + "</ID_ComplexVariable>");
-		System.out.println("IdComplex : "+IdComplex);
 		newSource_V999MV1 = newSource_V999MV1.replaceAll("<Tagname />", "<Tagname>" + description + "</Tagname>");
-		newSource_V999MV1 = newSource_V999MV1.replaceAll("<Offset>0</Offset>", "<Offset>" + offSet + "</Offset>");
-		newSource_V999MV1 = newSource_V999MV1.replaceAll("<NetAddr>1</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
+		newSource_V999MV1 = newSource_V999MV1.replaceAll("<Offset>.*.</Offset>", "<Offset>" + offSet + "</Offset>");	
+		newSource_V999MV1 = newSource_V999MV1.replaceAll("<NetAddr>.*.</NetAddr>", "<NetAddr>" + netAdress + "</NetAddr>");
 		newSource_V999MV1 = newSource_V999MV1.replaceAll("Identification", "@"+name + " - " + description);
-		
-		//IdComplex++;
-		//System.out.println("IdComplex : "+IdComplex);
-
-		
+			
 		stringBulder.append(newSource_V999MV1);
 
 		return newSource_V999MV1;

@@ -3,6 +3,7 @@ package Utils;
 
 public final class Paths
 {
+	public static String LineName="C";
 	
 	public static String mainPath = "D:\\3_Praca\\Projekty\\Andritz\\04_Tools\\01_Generator\\Andritz_Generator_Input_Files\\New Base\\";
 	
@@ -13,9 +14,15 @@ public final class Paths
 	//***************
 
 	public static String mainPathAnalog = 						mainPath	   + "A999MW1 - Analog\\";
-	public static String outputPathAnalog = 					mainPath       + "A999MW1 - Analog\\Generator\\";
+	//public static String outputPathAnalog = 					mainPath       + "A999MW1 - Analog\\Generator\\";
+	//public static String outputPathAnalog = 					mainPath       + "A999MW1 - Analog\\Generator\\LINE_A\\";
+	//public static String outputPathAnalog = 					mainPath       + "A999MW1 - Analog\\Generator\\LINE_B\\";
+	public static String outputPathAnalog = 					mainPath       + "A999MW1 - Analog\\Generator\\LINE_C\\";
 	
-	public static String sourcePathAnalog = 					mainPathAnalog + "Source - Analog.txt";
+	//public static String sourcePathAnalog = 					mainPathAnalog + "Source - Analog.txt";
+	//public static String sourcePathAnalog = 					mainPathAnalog + "Source A - Analog.txt";
+	//public static String sourcePathAnalog = 					mainPathAnalog + "Source B - Analog.txt";
+	public static String sourcePathAnalog = 					mainPathAnalog + "Source C - Analog.txt";
 
 	public static String pathCMD_A999MW1 = 						mainPathAnalog + "Oryginal\\Variable\\CMD_A999MW1.XML";
 	public static String pathCONFIG_A999MW1 = 					mainPathAnalog + "Oryginal\\Variable\\CONFIG_A999MW1.XML";
@@ -54,8 +61,11 @@ public final class Paths
 
 	public static String mainPathBinary = 						mainPath	   + "B999GS1 - Binary\\";
 	public static String outputPathBinary = 					mainPath	   + "B999GS1 - Binary\\Generator\\";
+	//public static String outputPathBinary = 					mainPath	   + "B999GS1 - Binary\\Generator\\Line C\\";
+
 	
 	public static String sourcePathBinary = 					mainPathBinary + "Source - Binary.txt";
+	//public static String sourcePathBinary = 					mainPathBinary + "Source C - Binary.txt";
 
 	public static String pathCMD_B999GS1 = 						mainPathBinary + "Oryginal\\Variable\\CMD_B999GS1.XML";
 	public static String pathCONFIG_B999GS1 = 					mainPathBinary + "Oryginal\\Variable\\CONFIG_B999GS1.XML";
@@ -87,9 +97,15 @@ public final class Paths
 	//***************
 
 	public static String mainPathValve = 						mainPath + 		"V999MV1 - Valve\\";
-	public static String outputPathValve = 						mainPath +  	"V999MV1 - Valve\\Generator\\";
+	public static String outputPathValve = 					    mainPath +  	"V999MV1 - Valve\\Generator\\";
+	//public static String outputPathValve = 					mainPath +  	"V999MV1 - Valve\\Generator\\Line A\\";
+	//public static String outputPathValve = 					mainPath +  	"V999MV1 - Valve\\Generator\\Line B\\";
+	//public static String outputPathValve = 					mainPath +  	"V999MV1 - Valve\\Generator\\Line C\\";
 	
 	public static String sourcePathValve = 						mainPathValve + "Source - ValveV1.txt";
+	//public static String sourcePathValve = 					mainPathValve + "Source A - ValveV1.txt";
+	//public static String sourcePathValve = 					mainPathValve + "Source B - ValveV1.txt";
+	//public static String sourcePathValve = 					mainPathValve + "Source C - ValveV1.txt";
 
 	public static String pathCMD_V999MV1 = 						mainPathValve + "Oryginal\\Variable\\CMD_V999MV1.XML";
 	public static String pathSTAT_V999MV1 = 					mainPathValve + "Oryginal\\Variable\\STAT_V999MV1.XML";
@@ -130,11 +146,11 @@ public final class Paths
 	//***************
 
 	public static String mainPathMotor = 						mainPath 	  + "M999CM1 - Motor\\";
-	public static String outputPathMotorDOL = 					mainPathMotor + "Generator\\DOL\\";
-	public static String outputPathMotorVFD = 					mainPathMotor + "Generator\\VFD\\";	
+	public static String outputPathMotorDOL = 					mainPathMotor + "Generator\\DOL\\LINE_" + LineName + "\\";
+	public static String outputPathMotorVFD = 					mainPathMotor + "Generator\\VFD\\LINE_" + LineName + "\\";	
 	
-	public static String sourcePathMotorDOL = 					mainPathMotor + "Source - MotorDOL.txt";
-	public static String sourcePathMotorVFD = 					mainPathMotor + "Source - MotorVFD.txt";
+	public static String sourcePathMotorDOL = 					mainPathMotor + "Source " + LineName + " - MotorDOL.txt";
+	public static String sourcePathMotorVFD = 					mainPathMotor + "Source " + LineName + " - MotorVFD.txt";
 
 	//Oryginal Export Files From ZENON
 	public static String pathCMD_M999CM1 = 						mainPathMotor + "Oryginal\\Variable\\CMD_M999CM1.XML";
@@ -179,6 +195,38 @@ public final class Paths
 	public static String pathScreenPart2_M999CM1 = 				mainPathMotor + "Import\\ImportScreenPart2_M999CM1.XML";
 	public static String pathScreenPart3_M999CM1 = 				mainPathMotor + "Import\\ImportScreenPart3.XML";
 	
+
+	//***************
+	//
+	// PID Paths
+	//
+	//***************
+
+	public static String mainPathPID = 							mainPath + 		"C999TIC - PID\\";
+	//public static String outputPathPID = 					    mainPathPID +  	"Generator\\";
+	//public static String outputPathPID = 						mainPath +  	"C999TIC - PID\\Generator\\Line A\\";
+	//public static String outputPathPID = 						mainPath +  	"C999TIC - PID\\Generator\\Line B\\";
+	public static String outputPathPID = 						mainPath +  	"C999TIC - PID\\Generator\\Line C\\";
+	
+	//public static String sourcePathPID = 						mainPathPID + "Source - PID.txt";
+	//public static String sourcePathPID = 						mainPathPID + "Source A - PID.txt";
+	//public static String sourcePathPID = 						mainPathPID + "Source B - PID.txt";
+	public static String sourcePathPID = 						mainPathPID + "Source C - PID.txt";
+
+	public static String pathCMD_C999TIC = 						mainPathPID + "Oryginal\\Variable\\CMD_C999TIC.XML";
+	public static String pathSTAT_C999TIC = 					mainPathPID + "Oryginal\\Variable\\STAT_C999TIC.XML";
+	public static String pathCONFIG_C999TIC = 					mainPathPID + "Oryginal\\Variable\\CONFIG_C999TIC.XML";
+	
+	
+	public static String pathVariableCMD_C999TIC = 				mainPathPID + "Import\\Variable_CMD_C999TIC.XML";
+	public static String pathVariableSTAT_C999TIC = 			mainPathPID + "Import\\Variable_STAT_C999TIC.XML";
+	public static String pathVariableCONFIG_C999TIC = 			mainPathPID + "Import\\Variable_CONFIG_C999TIC.XML";
+	
+	public static String pathVariablePart1_C999TIC = 			mainPathPID + "Import\\ImportVariablePart1.XML";
+	public static String pathVariablePart2_C999TIC = 			mainPathPID + "Import\\ImportVariablePart2.XML";
+	public static String pathVariablePart3_C999TIC = 			mainPathPID + "Import\\ImportVariablePart3.XML";
+
+
 	
 	
 
