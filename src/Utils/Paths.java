@@ -3,7 +3,7 @@ package Utils;
 
 public final class Paths
 {
-	public static String LineName="C";
+	public static String LineName="";
 	
 	public static String mainPath = "D:\\3_Praca\\Projekty\\Andritz\\04_Tools\\01_Generator\\Andritz_Generator_Input_Files\\New Base\\";
 	
@@ -19,10 +19,10 @@ public final class Paths
 	//public static String outputPathAnalog = 					mainPath       + "A999MW1 - Analog\\Generator\\LINE_B\\";
 	public static String outputPathAnalog = 					mainPath       + "A999MW1 - Analog\\Generator\\LINE_C\\";
 	
-	//public static String sourcePathAnalog = 					mainPathAnalog + "Source - Analog.txt";
+	/public static String sourcePathAnalog = 					mainPathAnalog + "Source - Analog.txt";
 	//public static String sourcePathAnalog = 					mainPathAnalog + "Source A - Analog.txt";
 	//public static String sourcePathAnalog = 					mainPathAnalog + "Source B - Analog.txt";
-	public static String sourcePathAnalog = 					mainPathAnalog + "Source C - Analog.txt";
+	//ublic static String sourcePathAnalog = 					mainPathAnalog + "Source C - Analog.txt";
 
 	public static String pathCMD_A999MW1 = 						mainPathAnalog + "Oryginal\\Variable\\CMD_A999MW1.XML";
 	public static String pathCONFIG_A999MW1 = 					mainPathAnalog + "Oryginal\\Variable\\CONFIG_A999MW1.XML";
@@ -203,15 +203,15 @@ public final class Paths
 	//***************
 
 	public static String mainPathPID = 							mainPath + 		"C999TIC - PID\\";
-	//public static String outputPathPID = 					    mainPathPID +  	"Generator\\";
+	public static String outputPathPID = 					    mainPathPID +  	"Generator\\";
 	//public static String outputPathPID = 						mainPath +  	"C999TIC - PID\\Generator\\Line A\\";
 	//public static String outputPathPID = 						mainPath +  	"C999TIC - PID\\Generator\\Line B\\";
-	public static String outputPathPID = 						mainPath +  	"C999TIC - PID\\Generator\\Line C\\";
+	//public static String outputPathPID = 						mainPath +  	"C999TIC - PID\\Generator\\Line C\\";
 	
-	//public static String sourcePathPID = 						mainPathPID + "Source - PID.txt";
+	public static String sourcePathPID = 						mainPathPID + "Source - PID.txt";
 	//public static String sourcePathPID = 						mainPathPID + "Source A - PID.txt";
 	//public static String sourcePathPID = 						mainPathPID + "Source B - PID.txt";
-	public static String sourcePathPID = 						mainPathPID + "Source C - PID.txt";
+	//public static String sourcePathPID = 						mainPathPID + "Source C - PID.txt";
 
 	public static String pathCMD_C999TIC = 						mainPathPID + "Oryginal\\Variable\\CMD_C999TIC.XML";
 	public static String pathSTAT_C999TIC = 					mainPathPID + "Oryginal\\Variable\\STAT_C999TIC.XML";
